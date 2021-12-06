@@ -8,7 +8,6 @@ class correlation
         System.out.print("Enter the number of data items in each data set:");
         int n = sc.nextInt();
         System.out.println();
-        /*425 - Ʃ*/
         double x[] = new double[n];
         double y[] = new double[n];
         for(int i = 1 ; i <= n ; i++)
