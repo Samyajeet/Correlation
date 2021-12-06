@@ -22,7 +22,7 @@ class correlation
             {
                 System.out.print("|");
                 System.out.print(k);
-                for(int sp = 1 ; sp <= (6 - len(i)) ; sp++)
+                for(int sp = 1 ; sp <= (6 - len(k)) ; sp++)
                 System.out.print(" ");
                 System.out.print("|");
                 System.out.print(String.format("%.3f",x[k-1]));
@@ -35,7 +35,7 @@ class correlation
             {
                 System.out.print("|");
                 System.out.print(k);
-                for(int sp = 1 ; sp <= (6 - len(i)) ; sp++)
+                for(int sp = 1 ; sp <= (6 - len(k)) ; sp++)
                 System.out.print(" ");
                 System.out.println("|            |            |              |              |              |");
                 System.out.println("|------|------------|------------|--------------|--------------|--------------|");
@@ -53,7 +53,7 @@ class correlation
             {
                 System.out.print("|");
                 System.out.print(k);
-                for(int sp = 1 ; sp <= (6 - len(i)) ; sp++)
+                for(int sp = 1 ; sp <= (6 - len(k)) ; sp++)
                 System.out.print(" ");
                 System.out.print("|");
                 System.out.print(String.format("%.3f",x[k-1]));
@@ -70,7 +70,7 @@ class correlation
             {
                 System.out.print("|");
                 System.out.print(k);
-                for(int sp = 1 ; sp <= (6 - len(i)) ; sp++)
+                for(int sp = 1 ; sp <= (6 - len(k)) ; sp++)
                 System.out.print(" ");
                 System.out.print("|");
                 System.out.print(String.format("%.3f",x[k-1]));
