@@ -1,0 +1,192 @@
+import java.util.*;
+import java.util.stream.*;
+class correlation
+{
+    void main()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of data items in each data set:");
+        int n = sc.nextInt();
+        System.out.println();
+        /*425 - Ʃ*/
+        double x[] = new double[n];
+        double y[] = new double[n];
+        for(int i = 1 ; i <= n ; i++)
+        {
+            System.out.print("Enter the X value for Sn."+i+":");
+            x[i-1] = sc.nextDouble();
+            System.out.print('\u000C');
+            System.out.println("-------------------------------------------------------------------------------");
+            System.out.println("|Sn.   |     X      |     Y      |      X"+(char)178+"      |      Y"+(char)178+"      |      XY      |");
+            System.out.println("|------|------------|------------|--------------|--------------|--------------|");
+            for(int k = 1 ; k <= i ; k++)
+            {
+                System.out.print("|");
+                System.out.print(k);
+                for(int sp = 1 ; sp <= (6 - len(i)) ; sp++)
+                System.out.print(" ");
+                System.out.print("|");
+                System.out.print(String.format("%.3f",x[k-1]));
+                for(int sp = 1 ; sp <= (12 - len((int)x[k-1]) - 4) ; sp++)
+                System.out.print(" ");
+                System.out.println("|            |              |              |              |");
+                System.out.println("|------|------------|------------|--------------|--------------|--------------|");
+            }
+            for(int k = i+1 ; k <= n ; k++)
+            {
+                System.out.print("|");
+                System.out.print(k);
+                for(int sp = 1 ; sp <= (6 - len(i)) ; sp++)
+                System.out.print(" ");
+                System.out.println("|            |            |              |              |              |");
+                System.out.println("|------|------------|------------|--------------|--------------|--------------|");
+            }
+        }
+        for(int i = 1 ; i <= n ; i++)
+        {
+            System.out.print("Enter the Y value for Sn."+i+":");
+            y[i-1] = sc.nextDouble();
+            System.out.print('\u000C');
+            System.out.println("-------------------------------------------------------------------------------");
+            System.out.println("|Sn.   |     X      |     Y      |      X"+(char)178+"      |      Y"+(char)178+"      |      XY      |");
+            System.out.println("|------|------------|------------|--------------|--------------|--------------|");
+            for(int k = 1 ; k <= i ; k++)
+            {
+                System.out.print("|");
+                System.out.print(k);
+                for(int sp = 1 ; sp <= (6 - len(i)) ; sp++)
+                System.out.print(" ");
+                System.out.print("|");
+                System.out.print(String.format("%.3f",x[k-1]));
+                for(int sp = 1 ; sp <= (12 - len((int)x[k-1]) - 4) ; sp++)
+                System.out.print(" ");
+                System.out.print("|");
+                System.out.print(String.format("%.3f",y[k-1]));
+                for(int sp = 1 ; sp <= (12 - len((int)y[k-1]) - 4) ; sp++)
+                System.out.print(" ");
+                System.out.println("|              |              |              |");
+                System.out.println("|------|------------|------------|--------------|--------------|--------------|");
+            }
+            for(int k = i+1 ; k <= n ; k++)
+            {
+                System.out.print("|");
+                System.out.print(k);
+                for(int sp = 1 ; sp <= (6 - len(i)) ; sp++)
+                System.out.print(" ");
+                System.out.print("|");
+                System.out.print(String.format("%.3f",x[k-1]));
+                for(int sp = 1 ; sp <= (12 - len((int)x[k-1]) - 4) ; sp++)
+                System.out.print(" ");
+                System.out.println("|            |              |              |              |");
+                System.out.println("|------|------------|------------|--------------|--------------|--------------|");
+            }
+        }
+        double x2[] = new double[n];
+        double y2[] = new double[n];
+        double xy[] = new double[n];
+        for(int i = 0 ; i < n ; i++)
+        {
+            x2[i] = x[i]*x[i];
+            y2[i] = y[i]*y[i];
+            xy[i] = x[i]*y[i];
+        }
+        System.out.print('\u000C');
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println("|Sn.   |     X      |     Y      |      X"+(char)178+"      |      Y"+(char)178+"      |      XY      |");
+        System.out.println("|------|------------|------------|--------------|--------------|--------------|");
+        for(int i = 1 ; i <= n ; i++)
+        {
+            System.out.print("|");
+            System.out.print(i);
+            for(int sp = 1 ; sp <= (6 - len(i)) ; sp++)
+            System.out.print(" ");
+            System.out.print("|");
+            System.out.print(String.format("%.3f",x[i-1]));
+            for(int sp = 1 ; sp <= (12 - len((int)x[i-1]) - 4) ; sp++)
+            System.out.print(" ");
+            System.out.print("|");
+            System.out.print(String.format("%.3f",y[i-1]));
+            for(int sp = 1 ; sp <= (12 - len((int)y[i-1]) - 4) ; sp++)
+            System.out.print(" ");
+            System.out.print("|");
+            System.out.print(String.format("%.3f",x2[i-1]));
+            for(int sp = 1 ; sp <= (14 - len((int)x2[i-1]) - 4) ; sp++)
+            System.out.print(" ");
+            System.out.print("|");
+            System.out.print(String.format("%.3f",y2[i-1]));
+            for(int sp = 1 ; sp <= (14 - len((int)y2[i-1]) - 4) ; sp++)
+            System.out.print(" ");
+            System.out.print("|");
+            System.out.print(String.format("%.3f",xy[i-1]));
+            for(int sp = 1 ; sp <= (14 - len((int)xy[i-1]) - 4) ; sp++)
+            System.out.print(" ");
+            System.out.println("|");
+            System.out.println("|------|------------|------------|--------------|--------------|--------------|");
+        }
+        System.out.print("|  "+(char)425+"   |");
+        double sx = DoubleStream.of(x).sum();
+        double sy = DoubleStream.of(y).sum();
+        double sx2 = DoubleStream.of(x2).sum();
+        double sy2 = DoubleStream.of(y2).sum();
+        double sxy = DoubleStream.of(xy).sum();
+        System.out.print(String.format("%.3f",sx));
+        for(int sp = 1 ; sp <= (12 - len((int)sx) - 4) ; sp++)
+        System.out.print(" ");
+        System.out.print("|");
+        System.out.print(String.format("%.3f",sy));
+        for(int sp = 1 ; sp <= (12 - len((int)sy) - 4) ; sp++)
+        System.out.print(" ");
+        System.out.print("|");
+        System.out.print(String.format("%.3f",sx2));
+        for(int sp = 1 ; sp <= (14 - len((int)sx2) - 4) ; sp++)
+        System.out.print(" ");
+        System.out.print("|");
+        System.out.print(String.format("%.3f",sy2));
+        for(int sp = 1 ; sp <= (14 - len((int)sy2) - 4) ; sp++)
+        System.out.print(" ");
+        System.out.print("|");
+        System.out.print(String.format("%.3f",sxy));
+        for(int sp = 1 ; sp <= (14 - len((int)sxy) - 4) ; sp++)
+        System.out.print(" ");
+        System.out.println("|");
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println();
+        double covxy = 0;
+        double varx = 0;
+        double vary = 0;
+        for(int i = 0 ; i < n ; i++)
+        {
+            varx = varx + (x[i]-sx/n)*(x[i]-sx/n);
+            vary = vary + (y[i]-sy/n)*(y[i]-sy/n);
+            covxy = covxy + (x[i]-sx/n)*(y[i]-sy/n);
+        }
+        varx = varx/n;
+        vary = vary/n;
+        covxy = covxy/n;
+        System.out.println("Variance of X = "+String.format("%.6f",varx));
+        System.out.println();
+        System.out.println("Variance of Y = "+String.format("%.6f",vary));
+        System.out.println();
+        varx = Math.sqrt(varx);
+        vary = Math.sqrt(vary);
+        System.out.println("Standard Deviation of X = "+String.format("%.6f",varx));
+        System.out.println();
+        System.out.println("Standard Deviation of Y = "+String.format("%.6f",vary));
+        System.out.println();
+        System.out.println("Covariance  of X and Y = "+String.format("%.6f",covxy));
+        System.out.println();
+        System.out.println("Correlation  of X and Y = "+String.format("%.6f",covxy/(varx*vary)));
+    }
+    int len(int n)
+    {
+        int z = 0;
+        if(n == 0)
+        z = 1;
+        while(n != 0)
+        {
+            ++z;
+            n = n / 10;
+        }
+        return z;
+    }
+}
