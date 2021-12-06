@@ -4,12 +4,26 @@ class correlation
 {
     void main()
     {
+        System.out.print('\u000C');
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number of data items in each data set:");
         int n = sc.nextInt();
         System.out.println();
+        System.out.print('\u000C');
         double x[] = new double[n];
         double y[] = new double[n];
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println("|Sn.   |     X      |     Y      |      X"+(char)178+"      |      Y"+(char)178+"      |      XY      |");
+        System.out.println("|------|------------|------------|--------------|--------------|--------------|");
+        for(int i = 1 ; i <= n ; i++)
+        {
+            System.out.print("|");
+            System.out.print(i);
+            for(int sp = 1 ; sp <= (6 - len(i)) ; sp++)
+            System.out.print(" ");
+            System.out.println("|            |            |              |              |              |");
+            System.out.println("|------|------------|------------|--------------|--------------|--------------|");
+        }
         for(int i = 1 ; i <= n ; i++)
         {
             System.out.print("Enter the X value for Sn."+i+":");
