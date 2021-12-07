@@ -136,7 +136,7 @@ class correlation
             System.out.println("|");
             System.out.println("|------|------------|------------|--------------|--------------|--------------|");
         }
-        System.out.print("|  "+(char)425+"   |");
+        System.out.print("|  "+(char)931+"   |");
         double sx = DoubleStream.of(x).sum();
         double sy = DoubleStream.of(y).sum();
         double sx2 = DoubleStream.of(x2).sum();
@@ -173,22 +173,52 @@ class correlation
             vary = vary + (y[i]-sy/n)*(y[i]-sy/n);
             covxy = covxy + (x[i]-sx/n)*(y[i]-sy/n);
         }
+        /*562 - Ȳ*/
+        /*161 - ¡*/
+        /*931 - Σ*/
         varx = varx/n;
         vary = vary/n;
         covxy = covxy/n;
-        System.out.println("Variance of X = "+String.format("%.6f",varx));
+        System.out.println("Variance of X :");
         System.out.println();
-        System.out.println("Variance of Y = "+String.format("%.6f",vary));
+        System.out.println("    "+(char)931+"(X"+(char)161+" - X\u0304)"+(char)178);
+        System.out.println("  -----------     = "+String.format("%.6f",varx));
+        System.out.println("       n");
+        System.out.println();
+        System.out.println("Variance of Y :");
+        System.out.println();
+        System.out.println("    "+(char)931+"(Y"+(char)161+" - Y\u0304)"+(char)178);
+        System.out.println("  -----------     = "+String.format("%.6f",vary));
+        System.out.println("       n");
         System.out.println();
         varx = Math.sqrt(varx);
         vary = Math.sqrt(vary);
-        System.out.println("Standard Deviation of X = "+String.format("%.6f",varx));
+        System.out.println("Standard Deviation of X :");
+        System.out.println("     ______________");
+        System.out.println("    /   "+(char)931+"(X"+(char)161+" - X\u0304)"+(char)178);
+        System.out.println("   /  -----------     = "+String.format("%.6f",varx));
+        System.out.println(" \\/        n");
         System.out.println();
-        System.out.println("Standard Deviation of Y = "+String.format("%.6f",vary));
+        System.out.println("Standard Deviation of Y :");
+        System.out.println("     ______________");
+        System.out.println("    /   "+(char)931+"(Y"+(char)161+" - Y\u0304)"+(char)178);
+        System.out.println("   /  -----------     = "+String.format("%.6f",vary));
+        System.out.println(" \\/        n");
         System.out.println();
-        System.out.println("Covariance  of X and Y = "+String.format("%.6f",covxy));
+        System.out.println("Covariance  of X and Y :");
         System.out.println();
-        System.out.println("Correlation  of X and Y = "+String.format("%.6f",covxy/(varx*vary)));
+        System.out.println("    "+(char)931+"(X"+(char)161+" - X\u0304) \u00D7 (Y"+(char)161+" - Y\u0304)");
+        System.out.println("  ------------------     = "+String.format("%.6f",covxy));
+        System.out.println("          n");
+        System.out.println();
+        System.out.println("Correlation  of X and Y :");
+        System.out.println();
+        System.out.println("      "+(char)931+"(X"+(char)161+" - X\u0304) \u00D7 (Y"+(char)161+" - Y\u0304)");
+        if(varx == 0 || vary == 0)
+        System.out.println("  ----------------------     = \u221E");
+        else
+        System.out.println("  ----------------------     = "+String.format("%.6f",covxy/(varx*vary)));
+        System.out.println("  \u221A("+(char)931+"(X"+(char)161+" - X\u0304)"+(char)178+")  \u00D7  \u221A("+(char)931+"(Y"+(char)161+" - Y\u0304)"+(char)178+")");
     }
     int len(int n)
     {
